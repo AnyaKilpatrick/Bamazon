@@ -1,0 +1,30 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnyaKilpatrick/Bamazon.git"
+  },
+  "keywords": [
+    "bamazon",
+    "customer",
+    "item"
+  ],
+  "author": "Anya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnyaKilpatrick/Bamazon/issues"
+  },
+  "homepage": "https://github.com/AnyaKilpatrick/Bamazon#readme",
+  "dependencies": {
+    "cli-table": "^0.3.1",
+    "inquirer": "^5.2.0",
+    "mysql": "^2.15.0",
+    "request": "^2.85.0"
+  }
+}
