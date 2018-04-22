@@ -33,7 +33,7 @@ However, if store _does_ have enough of the product, app fulfills the customer's
 
 `bamazonManager.js`
 
-  application provides next menu options:
+  Application provides next menu options:
 
     * View Products for Sale
     
@@ -58,9 +58,9 @@ However, if store _does_ have enough of the product, app fulfills the customer's
 
 Running this application will list a set of menu options:
 
-   * View Product Sales by Department
+    * View Product Sales by Department
    
-   * Create New Department
+    * Create New Department
 
 When a supervisor selects `View Product Sales by Department`, the app displays a summarized table in their terminal/bash window. 
 Ex:
