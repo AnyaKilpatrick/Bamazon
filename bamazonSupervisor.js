@@ -11,6 +11,7 @@ var connection = mysql.createConnection({
     database: "bamazon"
 });
 
+// OBJECT
 var supervisor ={
     prompt: function(){
         inquirer.prompt([
@@ -28,7 +29,10 @@ var supervisor ={
             }
         })
     },
-    view: function(){
+    view: function(){ 
+        //joining two tables (departments & products) and then grouping the result-set by department_name (in case there are more then 1 item of the same department)
+        //using SQL aliases we display a temporary column "total_profit" that is calculated on the fly using the difference between over_head_costs and product_sales
+        //also using aliases for column sum(product_sales) - sum of all sales within one department , to make column name more readable.
         var select = "select products.department_name, departments.over_head_costs, sum(product_sales) as product_sales, sum(product_sales)-over_head_costs AS total_profit from products";
         var join="inner join departments on products.department_name = departments.department_name GROUP BY department_name";
         connection.query(select+" "+join, function(err, res){
@@ -70,6 +74,7 @@ var supervisor ={
             },function(err, res){
                 if (err) throw err;
                 console.log("New department added successfully!");
+                connection.end();
             })
         })
     }

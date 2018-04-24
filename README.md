@@ -1,6 +1,8 @@
 # Bamazon
 # Node.js & MySQL
 
+[Demo Video](https://www.youtube.com/watch?v=VdBbARgVYRw)
+
 ## Overview
 
 I created an Amazon-like storefront. The app will take in orders from customers and deplete stock from the store's inventory. App can track product sales across store's departments and then provide a summary of the highest-grossing departments in the store.
@@ -64,6 +66,7 @@ Running this application will list a set of menu options:
 
 When a supervisor selects `View Product Sales by Department`, the app displays a summarized table in their terminal/bash window. 
 Ex:
+
 | department_id | department_name | over_head_costs | product_sales | total_profit |
 | ------------- | --------------- | --------------- | ------------- | ------------ |
 | 01            | Electronics     | 10000           | 20000         | 10000        |
