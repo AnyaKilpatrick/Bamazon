@@ -14,6 +14,7 @@ var connection = mysql.createConnection({
 //GLOBAL VARIABLES
 var itemChoices = [];
 var updatedQuantity;
+var updatedSale;
 var itemID;
 
 //OBJECT
@@ -66,13 +67,20 @@ var bamazonCustomer = {
                         }
                     }
                 ]).then (function(response){
+                    var total = parseFloat(res[0].price*response.amount).toFixed(2);
+                    var sales = res[0].product_sales;
+
                     console.log("\x1b[36m%s\x1b[0m",`
                     Product: ${res[0].product_name}
                     Price per unit: ${res[0].price}$
                     Requested units: ${response.amount} 
-                    Total purchase: ${parseFloat(res[0].price*response.amount).toFixed(2)}$
+                    Total purchase: ${total}$
                     `)
                     updatedQuantity = parseFloat(res[0].stock_quantity) - parseFloat(response.amount);
+                    if(sales = "null"){
+                        sales=0;
+                    }
+                    updatedSale = parseFloat(sales) + parseFloat(total);
                     bamazonCustomer.updateDatabase();//updating amount of units in stock after successful purchase
                 })
             })
@@ -82,7 +90,8 @@ var bamazonCustomer = {
         connection.query("UPDATE products SET ? WHERE ?",
         [
             {
-                stock_quantity: updatedQuantity
+                stock_quantity: updatedQuantity,
+                product_sales: updatedSale
             },
             {
                 item_id: itemID
